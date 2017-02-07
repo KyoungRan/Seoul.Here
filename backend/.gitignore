@@ -94,3 +94,4 @@ myvenv/
 
 # Ohters
 *.swp
+static/bundles/

@@ -1,30 +1,15 @@
 // Styles
-import 'css/main.css'
+import 'styles/main.css'
 
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-
-import {AppContainer} from 'react-hot-loader'
+//import react router deps
+import {Router, browserHistory} from 'react-router'
 // AppContainer is a necessary wrapper component for HMR
-
+import {AppContainer} from 'react-hot-loader'
 // import components
-import App from './components/App'
-import Home from './components/Home'
-import routes from './routes'
-//import Root from './Root'
-// import react router deps
-import {Route, IndexRoute, Router, browserHistory} from 'react-router'
-//import {Provider} from 'react-redux'
-
-class Root extends Component {
-  render() {
-    return (
-      <Router history={browserHistory}>
-        {this.props.routes()}
-      </Router>
-    )
-  }
-}
+import routes from 'routes'
+import Root from 'Root'
 
 const render = appRoutes => {
   ReactDOM.render(
@@ -39,8 +24,8 @@ render(routes)
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./routes', () => {
-    const newRoutes = require('./routes').default;
+  module.hot.accept('routes', () => {
+    const newRoutes = require('routes').default;
     render(newRoutes)
   })
 }
